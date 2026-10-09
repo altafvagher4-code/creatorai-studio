@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Free creator tools for YouTube Shorts prompts, titles, descriptions, hashtags, and thumbnail ideas.">
+  <meta name="theme-color" content="#111827">
+  <title>CreatorAI Studio — Free Creator Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="CreatorAI Studio home">
+      <span class="brand-icon">✦</span>
+      <span>CreatorAI <b>Studio</b><small data-i18n="tagline">Free tools for creators</small></span>
+    </a>
+    <div class="top-actions">
+      <button id="languageToggle" class="btn btn-ghost" type="button" aria-label="Switch language">हिंदी</button>
+      <a class="btn btn-ghost github-link" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span><span data-i18n="eyebrow">FREE CREATOR TOOLKIT</span></div>
+      <h1 data-i18n="headline">Create your next <span>viral-style</span> Short.</h1>
+      <p data-i18n="subhead">Generate video prompts, titles, descriptions, hashtags and thumbnail text — right in your browser.</p>
+      <div class="hero-note"><span>✓</span> <span data-i18n="noApi">No paid API • No account • No subscription</span></div>
+    </section>
+
+    <section class="workspace">
+      <aside class="sidebar">
+        <p class="section-label" data-i18n="toolsLabel">YOUR TOOLS</p>
+        <button class="tool-tab active" data-tool="prompt" type="button"><span class="tool-icon">🎬</span><span data-i18n="toolPrompt">Shorts Prompt</span><span class="chevron">›</span></button>
+        <button class="tool-tab" data-tool="title" type="button"><span class="tool-icon">✍️</span><span data-i18n="toolTitle">Title & Description</span><span class="chevron">›</span></button>
+        <button class="tool-tab" data-tool="hashtags" type="button"><span class="tool-icon">#</span><span data-i18n="toolHashtags">Hashtag Generator</span><span class="chevron">›</span></button>
+        <button class="tool-tab" data-tool="thumbnail" type="button"><span class="tool-icon">🖼️</span><span data-i18n="toolThumbnail">Thumbnail Ideas</span><span class="chevron">›</span></button>
+        <div class="sidebar-tip"><span>💡</span><p data-i18n="tip">Tip: specific topics usually create more useful results than broad topics.</p></div>
+      </aside>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label" data-i18n="generatorLabel">GENERATOR</p>
+            <h2 id="toolHeading">YouTube Shorts Prompt</h2>
+          </div>
+          <span class="free-pill">FREE</span>
+        </div>
+
+        <form id="generatorForm">
+          <label for="topic" data-i18n="topicLabel">What is your video about?</label>
+          <input id="topic" name="topic" maxlength="180" required placeholder="e.g. Crispy cheese potato balls">
+          <div class="form-row">
+            <div class="field">
+              <label for="category" data-i18n="categoryLabel">Category</label>
+              <select id="category" name="category">
+                <option value="food">Food / Cooking</option>
+                <option value="comedy">Comedy</option>
+                <option value="facts">Facts / Education</option>
+                <option value="travel">Travel</option>
+                <option value="motivation">Motivation</option>
+                <option value="tech">Technology</option>
+                <option value="islamic">Islamic / Spiritual</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="language" data-i18n="outputLanguageLabel">Output language</label>
+              <select id="language" name="language">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+                <option value="hinglish">Hinglish</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="duration" data-i18n="durationLabel">Video duration</label>
+              <select id="duration" name="duration">
+                <option value="15">15 seconds</option>
+                <option value="30" selected>30 seconds</option>
+                <option value="45">45 seconds</option>
+                <option value="60">60 seconds</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="style" data-i18n="styleLabel">Style</label>
+              <select id="style" name="style">
+                <option value="cinematic">Cinematic</option>
+                <option value="fast">Fast-paced / Energetic</option>
+                <option value="simple">Simple and clear</option>
+                <option value="documentary">Documentary</option>
+                <option value="fun">Fun and playful</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn btn-primary generate-btn" type="submit"><span>✦</span><span data-i18n="generate">Generate ideas</span></button>
+        </form>
+
+        <section id="resultArea" class="result-area" hidden aria-live="polite">
+          <div class="result-top">
+            <h3 data-i18n="yourResult">Your result</h3>
+            <button id="copyAll" class="btn btn-small btn-ghost" type="button" data-i18n="copyAll">Copy all</button>
+          </div>
+          <div id="resultContent" class="result-content"></div>
+          <p class="disclaimer" data-i18n="disclaimer">These are template-based suggestions, not generated by a live AI model. Review facts and platform rules before publishing.</p>
+        </section>
+      </section>
+    </section>
+
+    <section class="feature-strip">
+      <div><span>⚡</span><b data-i18n="fastTitle">Instant</b><p data-i18n="fastDesc">Runs in your browser</p></div>
+      <div><span>🔒</span><b data-i18n="privateTitle">Private</b><p data-i18n="privateDesc">Your topic stays on your device</p></div>
+      <div><span>🌎</span><b data-i18n="globalTitle">Global-ready</b><p data-i18n="globalDesc">Ideas for audiences worldwide</p></div>
+    </section>
+    <footer>
+      <p>© <span id="year"></span> CreatorAI Studio</p>
+      <div><a href="privacy.html" data-i18n="privacy">Privacy</a><a href="about.html" data-i18n="about">About</a></div>
+      <p class="footer-note" data-i18n="footerNote">Free, template-based tools. No results or earnings are guaranteed.</p>
+    </footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
